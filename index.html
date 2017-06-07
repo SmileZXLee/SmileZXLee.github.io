@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>下糖果啦</title>
+    <style>
+        body{
+            margin: 0px;
+            height: 100%;
+           overflow: hidden;
+            
+        }
+        img{
+            position: absolute;
+            width: 100%;
+            height: 108%;
+            background-position: 0px -60px;
+        }
+    </style>
+</head>
+<body scroll="no">
+    <audio src="http://zhangmenshiting.baidu.com/data2/music/3b5355baa8240aeefc0bd6642bd3540a/122893782/122893782.mp3?xcode=2604bb07cd48472fa0d51cfc739c1004" loop autoplay></audio>
+    <img src="http://pic85.nipic.com/file/20151202/20018550_210843307000_2.jpg" alt="">
+    <script>
+        var w = document.documentElement.clientWidth;
+        var h = document.documentElement.clientHeight;
+        function showSnow(){
+            var top  = Math.random()*h;
+            var left = Math.random()*w;
+            var candy = document.createElement('img');
+            candy.style.width = "20px";
+            candy.style.height = "25px";   
+            candy.src = "http://www.easyicon.net/api/resizeApi.php?id=1145855&size=96";
+            candy.style.backgroundSize = 'contain';
+            candy.style.position = 'absolute';
+            candy.style.top = top + "px";
+            candy.style.left = left + "px";
+            candy.style.transform = "scale(" + Math.random() + ")";
+            document.body.appendChild(candy);
+             var mydeg = 0;
+            function down(){
+            top = top + Math.random()*1;
+            left = left + Math.random()*0.5;
+            if(top > h){
+                top = -100;
+            }
+            if(left > w){
+                left = -100;
+            }
+            candy.style.top = top + "px";
+            candy.style.left = left + "px";
+            mydeg += Math.random()*3;
+            candy.style.transform = "rotate(" + mydeg + "deg)";
+        }
+       setInterval(down,10); 
+    }
+       for(var i = 0;i<30;i++){
+       showSnow();
+       }
+    </script>
+</body>
+</html>
