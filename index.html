@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+       body{
+           margin: 0;
+           padding: 0;
+           height: 100%;
+           width: 100%;
+           background-color: lightblue;
+           background-image: linear-gradient(to top,pink,white);
+           perspective: 1500px;
+       }
+      
+       section{
+           width:400px;
+           height: 400px;
+           margin:200px auto;
+           transform-style: preserve-3d;
+           animation: rotate 20s linear infinite;   
+       }
+       div{
+           width: 400px;
+           height: 400px;
+           position: absolute;
+           background-size: contain;
+           background-repeat: no-repeat;
+           background-color: red;
+       }
+       div:nth-child(1){
+           background-image: url("http://img2.ph.126.net/u-LiCXLRLDn37OoqJL4bBw==/6632137590516453089.jpg");
+           transform: translateZ(200px);
+       }
+        div:nth-child(2){
+           background-image: url("http://img2.ph.126.net/u-LiCXLRLDn37OoqJL4bBw==/6632137590516453089.jpg");
+           transform: translateZ(-200px) ;
+       }
+        div:nth-child(3){
+           background-image: url("http://img2.ph.126.net/u-LiCXLRLDn37OoqJL4bBw==/6632137590516453089.jpg");
+           transform: rotateX(90deg) translateZ(200px);
+       }
+        div:nth-child(4){
+           background-image: url("http://img2.ph.126.net/u-LiCXLRLDn37OoqJL4bBw==/6632137590516453089.jpg");
+           transform: rotateX(90deg) translateZ(-200px);
+       }
+        div:nth-child(5){
+           background-image: url("http://img2.ph.126.net/u-LiCXLRLDn37OoqJL4bBw==/6632137590516453089.jpg");
+            transform: rotateY(90deg) translateZ(-200px);
+       }
+        div:nth-child(6){
+           background-image: url("http://img2.ph.126.net/u-LiCXLRLDn37OoqJL4bBw==/6632137590516453089.jpg");
+            transform: rotateY(90deg) translateZ(200px);
+       }
+       @keyframes rotate{
+           from{
+               transform: rotateY(0) rotateZ(0);
+           }
+           to{
+               transform: rotateY(720deg) rotateZ(360deg);
+           }
+       }
+    </style>
+</head>
+<body>
+    <span>愿历尽千帆，归来仍少年</span>
+    <section id="sec" >
+        <div class="before"></div>
+        <div class="after"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="top"></div>
+        <div class="bottom"></div>
+
+    </section>
+    <script>
+        var w = document.documentElement.clientWidth;
+        var h = document.documentElement.clientHeight;
+        function showCandy(){
+            var top  = Math.random()*h;
+            var left = Math.random()*w;
+            var candy = document.createElement('img');
+            candy.style.width = "20px";
+            candy.style.height = "25px";   
+            candy.src = "http://www.easyicon.net/api/resizeApi.php?id=1145855&size=96";
+            candy.style.backgroundSize = 'contain';
+            candy.style.position = 'absolute';
+            candy.style.top = top + "px";
+            candy.style.left = left + "px";
+            candy.style.transform = "scale(" + Math.random() + ")";
+            document.body.appendChild(candy);
+             var mydeg = 0;
+            function down(){
+            top = top + Math.random()*1;
+            left = left + Math.random()*0.5;
+            if(top > h){
+                top = -300;
+            }
+            if(left > w){
+                left = -300;
+            }
+            candy.style.top = top + "px";
+            candy.style.left = left + "px";
+            mydeg += Math.random()*3;
+            candy.style.transform = "rotate(" + mydeg + "deg)";
+        }
+       setInterval(down,10); 
+    }
+       for(var i = 0;i<15;i++)
+       {
+       showCandy();
+       }
+    </script>
+</body>
+</html>
+
