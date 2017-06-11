@@ -1,34 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>下糖果啦-by照相</title>
+    <meta charset="utf-8">
+    <title>Welcomt Hear.</title>
+    <link rel="stylesheet" href="./animate.css">
     <style>
-        body{
-            margin: 0px;
-            height: 100%;
-           overflow: hidden;
-            background-color:pink;
-            
-        }
-        img{
-            position: absolute;
-            width: 100%;
-            height: 108%;
-            background-position: 0px -60px;
-        }
+       body{
+           margin: 0;
+           height: 700px;
+           background-color: lightblue;
+            background-image: linear-gradient(to top,cyan,white);
+           perspective: 1500px;
+       }
+       section{
+           width:400px;
+           height: 400px;
+           background-color: red;
+           margin:200px auto;
+           transform-style: preserve-3d;
+           animation: rotate 12s linear infinite;   
+       }
+       div{
+           width: 400px;
+           height: 400px;
+           position: absolute;
+           background-size: contain;
+       }
+       div:nth-child(1){
+           background-image: url("http://b360.photo.store.qq.com/psb?/V12Tk7ye090CIt/08UxPNtjrDWMb61wBTwSLr*WL2gJ1qtsLlcYl8cUDYo!/c/dGgBAAAAAAAA&bo=OASABwAAAAARAIw!&rf=mood_app&t=5");
+           transform: translateZ(200px);
+       }
+        div:nth-child(2){
+           background-image: url("http://b360.photo.store.qq.com/psb?/V12Tk7ye090CIt/08UxPNtjrDWMb61wBTwSLr*WL2gJ1qtsLlcYl8cUDYo!/c/dGgBAAAAAAAA&bo=OASABwAAAAARAIw!&rf=mood_app&t=5");
+           transform: translateZ(-200px) ;
+       }
+        div:nth-child(3){
+           background-image: url("http://b360.photo.store.qq.com/psb?/V12Tk7ye090CIt/08UxPNtjrDWMb61wBTwSLr*WL2gJ1qtsLlcYl8cUDYo!/c/dGgBAAAAAAAA&bo=OASABwAAAAARAIw!&rf=mood_app&t=5");
+           transform: rotateX(90deg) translateZ(200px);
+       }
+        div:nth-child(4){
+           background-image: url("http://b360.photo.store.qq.com/psb?/V12Tk7ye090CIt/08UxPNtjrDWMb61wBTwSLr*WL2gJ1qtsLlcYl8cUDYo!/c/dGgBAAAAAAAA&bo=OASABwAAAAARAIw!&rf=mood_app&t=5");
+           transform: rotateX(90deg) translateZ(-200px);
+       }
+        div:nth-child(5){
+           background-image: url("http://b360.photo.store.qq.com/psb?/V12Tk7ye090CIt/08UxPNtjrDWMb61wBTwSLr*WL2gJ1qtsLlcYl8cUDYo!/c/dGgBAAAAAAAA&bo=OASABwAAAAARAIw!&rf=mood_app&t=5");
+            transform: rotateY(90deg) translateZ(-200px);
+       }
+        div:nth-child(6){
+           background-image: url("http://b360.photo.store.qq.com/psb?/V12Tk7ye090CIt/08UxPNtjrDWMb61wBTwSLr*WL2gJ1qtsLlcYl8cUDYo!/c/dGgBAAAAAAAA&bo=OASABwAAAAARAIw!&rf=mood_app&t=5");
+            transform: rotateY(90deg) translateZ(200px);
+       }
+       @keyframes rotate{
+           from{
+               transform: rotateY(0) rotateZ(0);
+           }
+           to{
+               transform: rotateY(720deg) rotateZ(360deg);
+           }
+       }
     </style>
 </head>
-<body scroll="no">
-    <audio src="http://zhangmenshiting.baidu.com/data2/music/3b5355baa8240aeefc0bd6642bd3540a/122893782/122893782.mp3?xcode=2604bb07cd48472fa0d51cfc739c1004" loop autoplay></audio>
-    
+<body>
+    <section id="sec" >
+        <div class="before"></div>
+        <div class="after"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="top"></div>
+        <div class="bottom"></div>
+
+    </section>
     <script>
-        alert('Welcome');
         var w = document.documentElement.clientWidth;
         var h = document.documentElement.clientHeight;
-        function showSnow(){
+        function showCandy(){
             var top  = Math.random()*h;
             var left = Math.random()*w;
             var candy = document.createElement('img');
@@ -46,10 +91,10 @@
             top = top + Math.random()*1;
             left = left + Math.random()*0.5;
             if(top > h){
-                top = -100;
+                top = -300;
             }
             if(left > w){
-                left = -100;
+                left = -300;
             }
             candy.style.top = top + "px";
             candy.style.left = left + "px";
@@ -58,9 +103,11 @@
         }
        setInterval(down,10); 
     }
-       for(var i = 0;i<30;i++){
-       showSnow();
+       for(var i = 0;i<30;i++)
+       {
+       showCandy();
        }
     </script>
 </body>
 </html>
+
