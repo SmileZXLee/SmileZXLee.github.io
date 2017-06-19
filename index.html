@@ -1,3 +1,13 @@
+<!-- 
+** auth：    照相 393727164@qq.com  
+** date：    2017/6/19 23:12:01
+** desc：    因为之前写过C#版本的，因此这里没有再通过网络获取数据了，也省去了不必要的等待时间，数据都是从Windows版本写入到本地所有信息以后以String的方式复制粘贴存储在本页面，
+             若有任何意见或建议，可以联系照相，QQ：393727164，或是加入2017福建农林大学新生群：451362594。
+             本页面数据来自福建农林大学招生办和招生咨询网，还有群里的小伙伴整理而得，由照相整理，引用请注明出处！！
+             ps:初学H5，不足之处望见谅。
+** Ver.:     V1.0.0
+Copyright (c) 2017年 照相. All rights reserved.
+-->
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 
@@ -5,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>index</title>
+    <title>2017FAFU新生报考信息查询</title>
     <style>
         body,
         html {
@@ -13,7 +23,7 @@
             margin: 0;
             height: 100%;
             user-select: none;
-            -webkit-text-size-adjust: none;
+            background-color: lightskyblue;
         }
 
         h1 {
@@ -94,6 +104,7 @@
             footer {
                 height: 90px;
                 font-size: 6px;
+                
             }
         }
     </style>
@@ -101,13 +112,14 @@
 
 <body>
 
-    <h1>2017FAFU新生报考辅助</h1>
+    <h1>2017FAFU新生报考信息查询</h1>
     <main>
         <section class="p1">省份:<select id="selP"></select>文理:<select><option value="">理工</option><option value="">文史</option><option value="">艺术类</option></select>专业:
             <input id="selM" type="text" placeholder="请输入专业">
             <section class="p2"><input id="submitBtn" type="submit" value="查询"></section>
             <section class="p3">
                 <hr>
+                <a style="color:blue;font-size:15px" href="https://pan.baidu.com/s/1geSDq2R" target="_blank">点击此处下载校区详情和宿舍安排与宿舍环境介绍文件</a>
             </section>
     </main>
     <footer>
@@ -147,8 +159,8 @@
         footer.style.marginTop = window.innerHeight - main.offsetHeight - footer.offsetHeight * 1.5 + 'px';
         //初始化数据
         var preJson = JSON.parse(localStorage.getItem('pre'));
-        if(preJson != null)
-        selM.value = preJson.m;
+        if (preJson != null)
+            selM.value = preJson.m;
         //初始化省份select
         var thArr = ['省份', '专业', '所属学院', '批次', '类别', '录取最低分', '录取平均分', '录取最高分', '就读校区'];//table的标题数组
         for (var i = 0; i < provinces.split('*').length; i++) {
@@ -167,10 +179,13 @@
                 item.parentNode.removeChild(item);
             }, this);
             //本地存储查询该条查询记录，以便下次访问时无需重新填写
-            var pre = {
-                p : selP.value,
-                m : selM.value
+            if (!navigator.userAgent.match(/(iPhone|iPod|iPad|ios|Android)/i)) {//若非移动端，其他移动端设备忽略
+                var pre = {
+                    p: selP.value,
+                    m: selM.value
+                }
             }
+
             localStorage.setItem("pre", JSON.stringify(pre));
             for (var i = 0; i < data.split('@').length - 2; i++) {//遍历所有数据
                 var singleData = data.split('@')[i].split('*');//单条数据
@@ -258,7 +273,7 @@
                         var sub = document.createElement('sub');
                         sub.innerText = "(点击查看学院招生办电话)";
                         sub.style.fontSize = '10px';
-                        sub.style.color = 'orange';
+                        sub.style.color = 'orangered';
                         college.appendChild(sub);//添加下标
                     }
                     college.onclick = function () {//点击了所属学院
@@ -285,9 +300,9 @@
                     //设置校区详情
                     var areaStr = area.innerText;
                     //额外设置area标签的HTML
-                    areaStr = areaStr.replace('安溪茶学院校区', '<a style="color:orange;text-decoration:none" href="http://ditu.amap.com/search?id=B0FFF9OMR6&city=350524&geoobj=118.120797%7C24.545507%7C118.131097%7C24.551088&query_type=IDQ&query=%E7%A6%8F%E5%BB%BA%E5%86%9C%E6%9E%97%E5%A4%A7%E5%AD%A6%E5%AE%89%E6%BA%AA%E8%8C%B6%E5%AD%A6%E9%99%A2&zoom=17" target="_blank">安溪茶学院校区</a>');
-                    areaStr = areaStr.replace('福州金山校区', '<a style="color:orange;text-decoration:none" href="http://ditu.amap.com/search?id=B024F05EZH&city=350104&geoobj=118.223563%7C25.073902%7C118.244162%7C25.085018&query_type=IDQ&query=%E7%A6%8F%E5%BB%BA%E5%86%9C%E6%9E%97%E5%A4%A7%E5%AD%A6(%E9%87%91%E5%B1%B1%E6%A0%A1%E5%8C%BA)&zoom=16" target="_blank">福州金山校区</a>');
-                    areaStr = areaStr.replace('福州大学城旗山校区', '<a style="color:orange;text-decoration:none" href="http://ditu.amap.com/search?id=B0FFH985R0&city=350121&geoobj=119.216732%7C26.071792%7C119.257931%7C26.09384&query_type=IDQ&query=%E7%A6%8F%E5%BB%BA%E5%86%9C%E6%9E%97%E5%A4%A7%E5%AD%A6(%E6%97%97%E5%B1%B1%E6%A0%A1%E5%8C%BA)&zoom=15" target="_blank">福州大学城旗山校区</a>');
+                    areaStr = areaStr.replace('安溪茶学院校区', '<a style="color:orangered;text-decoration:none" href="http://ditu.amap.com/search?id=B0FFF9OMR6&city=350524&geoobj=118.120797%7C24.545507%7C118.131097%7C24.551088&query_type=IDQ&query=%E7%A6%8F%E5%BB%BA%E5%86%9C%E6%9E%97%E5%A4%A7%E5%AD%A6%E5%AE%89%E6%BA%AA%E8%8C%B6%E5%AD%A6%E9%99%A2&zoom=17" target="_blank">安溪茶学院校区</a>');
+                    areaStr = areaStr.replace('福州金山校区', '<a style="color:orangered;text-decoration:none" href="http://ditu.amap.com/search?id=B024F05EZH&city=350104&geoobj=118.223563%7C25.073902%7C118.244162%7C25.085018&query_type=IDQ&query=%E7%A6%8F%E5%BB%BA%E5%86%9C%E6%9E%97%E5%A4%A7%E5%AD%A6(%E9%87%91%E5%B1%B1%E6%A0%A1%E5%8C%BA)&zoom=16" target="_blank">福州金山校区</a>');
+                    areaStr = areaStr.replace('福州大学城旗山校区', '<a style="color:orangered;text-decoration:none" href="http://ditu.amap.com/search?id=B0FFH985R0&city=350121&geoobj=119.216732%7C26.071792%7C119.257931%7C26.09384&query_type=IDQ&query=%E7%A6%8F%E5%BB%BA%E5%86%9C%E6%9E%97%E5%A4%A7%E5%AD%A6(%E6%97%97%E5%B1%B1%E6%A0%A1%E5%8C%BA)&zoom=15" target="_blank">福州大学城旗山校区</a>');
                     area.innerHTML = areaStr;//覆盖标签area的HTML
                     //与本省的高考分数线进行比较，取差值
                     var myScores = scores.split('@');
@@ -307,10 +322,8 @@
             }
             //遍历结束
             //刷新页面布局
-            var main = document.querySelector('main');
-            var footer = document.querySelector('footer');
             footer.style.marginTop = window.innerHeight - main.offsetHeight - footer.offsetHeight * 1.5 + 'px';
-            if (main.offsetHeight > window.innerHeight) {
+            if (main.offsetHeight > window.innerHeight - main.offsetHeight) {
                 footer.style.marginTop = '70px';
             }
             //结果处理
@@ -340,10 +353,8 @@
         }
         window.onresize = function () {
             //刷新页面布局
-            var main = document.querySelector('main');
-            var footer = document.querySelector('footer');
             footer.style.marginTop = window.innerHeight - main.offsetHeight - footer.offsetHeight * 1.5 + 'px';
-            if (main.offsetHeight > window.innerHeight) {
+            if (main.offsetHeight > window.innerHeight - main.offsetHeight) {
                 footer.style.marginTop = '70px';
             }
         }
