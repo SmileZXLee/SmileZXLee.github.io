@@ -338,8 +338,6 @@ Copyright (c) 2017年 照相. All rights reserved.
             if (document.querySelectorAll('table').length == 0) {//若未查询到任何信息
                 alert('未查询到任何信息，请检查您的输入！');
             }
-
-
         }
         function setScore(pro, pici, min, ave, max, s, index1) {//设置与本省的高考分数线的分数差，pro：所在省份；pici：批次；min，ave，max：最低，平均，最高分数；s：单行score；index1：索引位置
             if (pro.innerText.indexOf(s.split(' ')[0]) >= 0) {
@@ -352,7 +350,9 @@ Copyright (c) 2017年 照相. All rights reserved.
 
                 }
                 function tempFun(ss) {//计算并且设置数据
-                    var score = Math.round(s.split(' ')[index1].match(/[/^(\d)*$]/g).join(''));
+                    var score = 0;
+                    score = ss == '(高于本省一本线' ? Math.round(s.split(' ')[index1].match(/[/^(\d)*$]/g).join('')):Math.round(s.split(' ')[index1 + 2].match(/[/^(\d)*$]/g).join(''));
+                   // console.log(score);
                     min.innerText += ss + (Math.round(min.innerText) - score) + '分)';
                     ave.innerText += ss + (Math.round(ave.innerText) - score) + '分)';
                     max.innerText += ss + (Math.round(max.innerText) - score) + '分)';
