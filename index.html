@@ -91,7 +91,7 @@
             h1 {
                 font-size: 20px;
             }
-            footer{
+            footer {
                 height: 90px;
                 font-size: 6px;
             }
@@ -116,11 +116,11 @@
         <div>1.数据来源:福建农林大学招生办,学科资讯网,老陈整理的农大宿舍环境介绍 (2017) .docx； 特此鸣谢</div>
         <div>2.注意事项:专业往年录取情况分数线信息以2016年本校在各个省份的录取结果为数据来源，结果仅供参考,一切以你们发的招生简章和学校的说明文件为准,保留更改的权利。</div>
         <div>3.免责说明:因信息量过于庞大，纰漏之处在所难免，因此本程序的所有结果仅供参考，有任何疑问可以在群里提问，请仔细查阅发放的招生简章等报考书籍，若数据有出入，以该书中内容为准，您也可以联系我们进行数据的更改,感谢您的理解和支持!</div>
-        <div>4.如有任何疑问，欢迎加入2017福建农林大学新生群：451362594</div>
+        <div onclick="window.location='http://shang.qq.com/wpa/qunwpa?idkey=c5fcd6363cc0e2eb8e2da66abc8230a61d0253a096481589725711dff79e3e4f'">4.如有任何疑问，欢迎加入2017福建农林大学新生群：<span style="color:red">451362594(点击此处直接加入本群) </span></div>
     </footer>
 
     <script>
-        //这边是所有需要的数据(是的 我把数据弄成字符串了 哈哈哈哈哈嗝)
+        //这边是所有需要的数据(是的 我把数据弄成字符串了 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈嗝)
         //所有省份
         var provinces = '全国*福建省*安徽省*北京市*甘肃省*广东省*贵州省*海南省*河北省*河南省*湖北省*湖南省*吉林省*江苏省*江西省*辽宁省*青海省*山东省*山西省*陕西省*上海市*四川省*天津市*云南省*浙江省*重庆市*黑龙江省*西藏自治区*内蒙古自治区*广西壮族自治区*宁夏回族自治区*新疆维吾尔族自治区';
         //2016农大在各个省份的录取信息
@@ -146,6 +146,9 @@
         var footer = document.querySelector('footer');
         footer.style.marginTop = window.innerHeight - main.offsetHeight - footer.offsetHeight * 1.5 + 'px';
         //初始化数据
+        var preJson = JSON.parse(localStorage.getItem('pre'));
+        if(preJson != null)
+        selM.value = preJson.m;
         //初始化省份select
         var thArr = ['省份', '专业', '所属学院', '批次', '类别', '录取最低分', '录取平均分', '录取最高分', '就读校区'];//table的标题数组
         for (var i = 0; i < provinces.split('*').length; i++) {
@@ -163,6 +166,12 @@
             tables.forEach(function (item) {
                 item.parentNode.removeChild(item);
             }, this);
+            //本地存储查询该条查询记录，以便下次访问时无需重新填写
+            var pre = {
+                p : selP.value,
+                m : selM.value
+            }
+            localStorage.setItem("pre", JSON.stringify(pre));
             for (var i = 0; i < data.split('@').length - 2; i++) {//遍历所有数据
                 var singleData = data.split('@')[i].split('*');//单条数据
                 if (selM.value == "") {//专业为空，返回
@@ -173,7 +182,15 @@
                 var p = selP.value.trim();//临时存储省份信息
                 if (p == "全国") p = "";//若是全国，即为所有省份
                 if (singleData.length < 5) return;
-                if (singleData[1].indexOf(p) >= 0 && singleData[4].indexOf(selM.value) >= 0) {//若有查询结果
+                if (singleData[1].indexOf(p) >= 0) {//若有查询结果
+                    var cArr = selM.value.split('');
+                    var majorCheckFlag = true;//用以筛选专业
+                    cArr.forEach(function (item, index) {//输入的专业所有字符包含在专业全称里面即可
+                        if (singleData[4].indexOf(item) < 0) {
+                            majorCheckFlag = false;
+                        }
+                    }, this);
+                    if (majorCheckFlag == false) continue;//若不匹配，跳过本次循环
                     var title = document.createElement('h2');//专业查询结果标题
                     title.style.color = 'red';
                     title.innerText = singleData[4];
@@ -321,8 +338,8 @@
                 }
             }
         }
-        window.onresize = function(){
-             //刷新页面布局
+        window.onresize = function () {
+            //刷新页面布局
             var main = document.querySelector('main');
             var footer = document.querySelector('footer');
             footer.style.marginTop = window.innerHeight - main.offsetHeight - footer.offsetHeight * 1.5 + 'px';
