@@ -1,7 +1,7 @@
 <!-- 
 ** auth：    照相 393727164@qq.com  
 ** date：    2017/6/19 23:12:01
-** desc：    因为之前写过C#版本的，因此这里没有再通过网络获取数据了，而且也有水平所限还有懒的缘故，但是也省去了不必要的加载时间，数据都是从Windows版本将需要的信息以一定的规范保留在本地以后以String的方式复制粘贴存储在本页面的，
+** desc：    因为之前写过C#版本的，因此这里没有再通过网络获取数据了，而且也有水平所限还有懒的缘故，但是也省去了不必要的加载时间，数据都是从Windows版本将需要的信息以一定的规范保留在本地以后以String的方式复制粘贴存储在js文件中，
              若有任何意见或建议，可以联系照相，QQ：393727164，或是加入2017福建农林大学新生群：451362594。
              本页面数据来自福建农林大学招生办和招生咨询网，还有群里的小伙伴整理而得，由照相整理，引用请注明出处！！
              ps:初学H5，不足之处望见谅。
@@ -185,6 +185,7 @@ Copyright (c) 2017年 照相. All rights reserved.
             for (var i = 0; i < data.split('@').length - 2; i++) {//遍历所有数据
                 var singleData = data.split('@')[i].split('*');//单条数据
                 if (selM.value == "") {//专业为空，返回
+                    footer.style.marginTop = window.innerHeight - main.offsetHeight - footer.offsetHeight * 1.5 + 'px';
                     alert('专业不能为空！请重新输入');
                     selM.focus();
                     return;
@@ -325,6 +326,7 @@ Copyright (c) 2017年 照相. All rights reserved.
             }
             //结果处理
             if (document.querySelectorAll('table').length == 0) {//若未查询到任何信息
+                footer.style.marginTop = window.innerHeight - main.offsetHeight - footer.offsetHeight * 1.5 + 'px';
                 alert('未查询到任何信息，请检查您的输入！');
             }
         }
