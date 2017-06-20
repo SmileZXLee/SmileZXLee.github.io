@@ -333,7 +333,7 @@ Copyright (c) 2017年 照相. All rights reserved.
         function setScore(pro, pici, min, ave, max, s, index1) {//设置与本省的高考分数线的分数差，pro：所在省份；pici：批次；min，ave，max：最低，平均，最高分数；s：单行score；index1：索引位置
             if (pro.innerText.indexOf(s.split(' ')[0]) >= 0) {
                 //var rep = index1 == 2 ? '理科' : '文科';//区分文理科
-                if (pici.innerText.indexOf('本科一批') >= 0 || pici.innerText.indexOf('本科提前一批定向') >= 0) {//本科一批
+                if (pici.innerText.indexOf('本科一批') >= 0 || pici.innerText.indexOf('本科提前一批') >= 0) {//本科一批
                     tempFun('(高于本省一本线');
                 } else if (pici.innerText.indexOf('本科二批') >= 0) {//本科二批
                     tempFun('(高于本省二本线');
