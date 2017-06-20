@@ -319,7 +319,7 @@ Copyright (c) 2017年 照相. All rights reserved.
             //遍历结束
             //刷新页面布局
             footer.style.marginTop = window.innerHeight - main.offsetHeight - footer.offsetHeight * 1.5 + 'px';
-            if (main.offsetHeight > window.innerHeight - footer.offsetHeight) {
+            if (main.offsetHeight > window.innerHeight - footer.offsetHeight - 60) {
                 footer.style.marginTop = '70px';
             }else{
                 footer.style.marginTop = window.innerHeight - main.offsetHeight - footer.offsetHeight * 1.5 + 'px';
@@ -353,7 +353,7 @@ Copyright (c) 2017年 照相. All rights reserved.
         window.onresize = function () {
             //刷新页面布局
             footer.style.marginTop = window.innerHeight - main.offsetHeight - footer.offsetHeight * 1.5 + 'px';
-            if (main.offsetHeight > window.innerHeight - footer.offsetHeight) {
+            if (main.offsetHeight > window.innerHeight - footer.offsetHeight - 60) {
                 footer.style.marginTop = '70px';
             }else{
                 footer.style.marginTop = window.innerHeight - main.offsetHeight - footer.offsetHeight * 1.5 + 'px';
