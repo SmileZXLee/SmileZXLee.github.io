@@ -16,16 +16,28 @@ Copyright (c) 2017年 照相. All rights reserved.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>2017FAFU新生报考信息查询</title>
-    <style>
-        body,
+    <style> 
         html {
             padding: 0;
             margin: 0;
             height: 100%;
             user-select: none;
-            background-color: lightskyblue;
+            background-color: transparent;
         }
-
+        
+        .bac{
+            position: absolute;
+            background-image: url("http://zxlee.oss-cn-shanghai.aliyuncs.com/2017%E6%96%B0%E7%94%9F%E5%8A%A9%E6%89%8B.png");
+            background-repeat: no-repeat;
+            background-size:contain;
+            margin-left: 0px;
+            margin-top: 0px;
+            opacity: 0.1;
+            text-align: center;
+           
+            
+        }
+      
         h1 {
             margin-top: 20px;
             text-align: center;
@@ -104,16 +116,17 @@ Copyright (c) 2017年 照相. All rights reserved.
             footer {
                 height: 90px;
                 font-size: 6px;
-                
+
             }
         }
     </style>
 </head>
 
 <body>
-
+    <section class="bac"></section>
     <h1>2017FAFU新生报考信息查询</h1>
     <main>
+        <h4 style="text-align:center;color:forestgreen">预祝2017的小鲜肉们录取顺利!</h4>
         <section class="p1">省份:<select id="selP"></select>文理:<select><option value="">理工</option><option value="">文史</option><option value="">艺术类</option></select>专业:
             <input id="selM" type="text" placeholder="请输入专业">
             <section class="p2"><input id="submitBtn" type="submit" value="查询"></section>
@@ -140,7 +153,17 @@ Copyright (c) 2017年 照相. All rights reserved.
         //初始化页面
         var main = document.querySelector('main');
         var footer = document.querySelector('footer');
+        var bac = document.querySelector('.bac');
+        var colors = ['lightskyblue','lightyellow','lightcyan'];
+        //随机背景色
+        document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
         footer.style.marginTop = window.innerHeight - main.offsetHeight - footer.offsetHeight * 1.5 + 'px';
+        //设置背景图片大小和位置
+        bac.style.height = (window.innerHeight > window.innerWidth ? window.innerWidth : window.innerHeight) + 'px';
+        bac.style.width = bac.style.height;
+        bac.style.marginTop = window.innerHeight / 2 - bac.offsetHeight / 2 - 20 + 'px';
+        bac.style.marginLeft = window.innerWidth / 2 - bac.offsetWidth / 2 + 'px';
+        bac.style.zIndex = -1;
         //初始化数据
         var preJson = JSON.parse(localStorage.getItem('pre'));
         if (preJson != null)
@@ -234,6 +257,7 @@ Copyright (c) 2017年 照相. All rights reserved.
                         var th = tr1.insertCell();
                         th.innerText = item;
                         th.style.textAlign = 'center';
+                        th.style.fontWeight = '900';
                     }, this);
                     var tr2 = table.insertRow();
                     //学院和校区单独出来设置
@@ -358,6 +382,10 @@ Copyright (c) 2017年 照相. All rights reserved.
             }else{
                 footer.style.marginTop = window.innerHeight - main.offsetHeight - footer.offsetHeight * 1.5 + 'px';
             }
+            bac.style.height = (window.innerHeight > window.innerWidth ? window.innerWidth : window.innerHeight) + 'px';
+            bac.style.width = bac.style.height;
+            bac.style.marginTop = window.innerHeight / 2 - bac.offsetHeight / 2 - 20 + 'px';
+            bac.style.marginLeft = window.innerWidth / 2 - bac.offsetWidth / 2 + 'px';
         }
     </script>
 </body>
