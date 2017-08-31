@@ -1,53 +1,49 @@
-
-<!-- 
-** auth：    照相 393727164@qq.com  
-** date：    2017/6/19 23:12:01
-** desc：    因为之前写过C#版本的，因此这里没有再通过网络抓取数据了，也省去了不必要的加载时间，数据都是从Windows版本将需要的信息以一定的规范保留在本地以后以String的方式复制粘贴存储在js文件中，
-             不保证数据的可靠性，若有任何意见或建议，可以联系照相，QQ：393727164，或是加入2017福建农林大学新生群：451362594。
-             本页面数据来自福建农林大学招生办和招生咨询网，农大宿舍环境介绍 (2017).docx由老陈整理，所有数据由照相统一整理，引用请注明出处！！
-             ps:初学H5，不足之处望见谅。
-** Ver.:     V1.0.0
-
-Copyright (c) 2017年 照相. All rights reserved.
--->
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
-
+<html lang="ch">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>2017FAFU新生报考信息查询</title>
-     <!--页面基本布局-->
-    <link rel="stylesheet" type="text/css" href="http://fafu.zxlee.cn/2017FAFUAdmitHelper/pageLayout.css">
+    <title>欢迎使用PicEditor</title>
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            background: rgb(19, 22, 83);;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            user-select: none;
+            overflow: hidden;
+        }
+        img{
+            display: block;
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            margin-top: 25%;
+
+        }
+        h2{
+            color: white;
+            text-align: center;
+            width: 100%;
+            margin: 10px auto;
+        }
+        p{  
+            text-align: center;
+            font-size: 12px;
+            font-weight: 100;
+            color: white;
+            width: 90%;
+            margin: 30px auto;
+        }
+    </style>
 </head>
 <body>
-    <section class="bac"></section>
-    <h1>2017FAFU新生报考信息查询</h1>
-    <main>
-        <h4 style="text-align:center;color:forestgreen">预祝2017的小鲜肉们录取顺利!</h4>
-        <section class="p1">省份:<select id="selP"></select>文理:<select id="selL"></select>专业:
-            <input id="selM" type="text" placeholder="请输入专业">
-            <section class="p2"><input id="submitBtn" type="submit" value="查询"></section>
-            <section class="p3">
-                <hr>
-                <a style="color:blue;font-size:12px" href="http://fafu.zxlee.cn/%E5%86%9C%E5%A4%A7%E5%AE%BF%E8%88%8D%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D%20(2017)%20.docx" target="_blank">①点击此处下载校区详情和宿舍安排与宿舍环境介绍文件</a>
-                <a style="color:orange;font-size:12px" href="http://fafu.zxlee.cn/2017FAFUAdmitHelper/%E7%A6%8F%E5%BB%BA%E5%86%9C%E6%9E%97%E5%A4%A7%E5%AD%A62017%E5%B9%B4%E5%88%86%E4%B8%93%E4%B8%9A%E6%8B%9B%E7%94%9F%E8%AE%A1%E5%88%92%E4%B8%80%E8%A7%88%E8%A1%A8.html" target="_blank">②点击查阅我校2017年分专业招生计划一览表</a>
-                <a style="color:red;font-size:12px" href="http://fafu.zxlee.cn/2017FAFUAdmitHelper/%E5%85%B3%E4%BA%8E%E7%A6%8F%E5%BB%BA%E5%86%9C%E6%9E%97%E5%A4%A7%E5%AD%A62017%E5%B9%B4%E6%8B%9B%E7%94%9F%E2%80%9C%E4%B8%93%E4%B8%9A%E6%B8%85%E2%80%9D%E5%BD%95%E5%8F%96%E6%94%BF%E7%AD%96%E7%9A%84%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E.pdf" target="_blank">③点击查阅我校2017年“专业清”录取政策的详细说明(重要！！)</a>
-            </section>
-    </main>
-    <!--尾部权限信息-->
-    <footer>
-        <div>Copyright (c) 2017年 照相. All rights reserved.</div>
-        <div>QQ:393727164</div>
-        <div>1.数据来源:福建农林大学招生办,学科资讯网,老陈整理的农大宿舍环境介绍 (2017) .docx； 特此鸣谢</div>
-        <div>2.注意事项:专业往年录取情况分数线信息以2016年本校在各个省份的录取结果为数据来源，结果仅供参考,一切以你们发的招生简章和学校的说明文件为准,保留更改的权利。</div>
-        <div>3.免责说明:因信息量过于庞大，纰漏之处在所难免，因此本程序的所有结果仅供参考，有任何疑问可以在群里提问，请仔细查阅发放的招生简章等报考书籍，若数据有出入，以该书中内容为准，您也可以联系我们进行数据的更改,感谢您的理解和支持!</div>
-        <div onclick="window.location='http://shang.qq.com/wpa/qunwpa?idkey=c5fcd6363cc0e2eb8e2da66abc8230a61d0253a096481589725711dff79e3e4f'">4.如有任何疑问，欢迎加入2017福建农林大学新生群：<span style="color:red">451362594(点击此处直接加入本群) </span></div>
-    </footer>
-    <!--引入所有数据-->
-    <script src="http://fafu.zxlee.cn/2017FAFUAdmitHelper/datas.js"></script>
-    <!--页面逻辑处理-->
-    <script src="http://fafu.zxlee.cn/2017FAFUAdmitHelper/pageControl.js"></script>
+    <img src="./peMain-white.png" alt="">
+    <h2>PicEditor</h2>
+    <p>一款免费的集图片拼接，网页快照等为一体的图像处理软件</p>
+    <p>若您有任何意见和建议，请发邮件至3937327164@qq.com，帮助PicEditor做得更好！</p>
 </body>
 </html>
