@@ -1,67 +1,213 @@
 <!DOCTYPE html>
-<html lang="ch">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>欢迎使用PicEditor</title>
-    <style>
-        html,body{
-            padding: 0;
-            margin: 0;
-            height: 100%;
-            background: rgb(24, 34, 102);
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            user-select: none;
-            overflow: hidden;
-        }
-        img{
-            display: block;
-            width: 160px;
-            height: 160px;
-            margin: auto;
-            margin-top: 25%;
 
-        }
-        h2{
-            color: white;
-            text-align: center;
-            width: 100%;
-            margin: 10px auto;
-        }
-        p{  
-            text-align: center;
-            font-size: 12px;
-            font-weight: 100;
-            color: white;
-            width: 90%;
-            margin: 30px auto;
-        }
-        div{
-            width: 120px;
-            height: 40px;
-            border: 2px solid white;
-            color: white;
-            border-radius: 5px;
-            text-align: center;
-            line-height: 40px;
-            margin: auto;
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        }
-    </style>
+    <title>欢迎使用iFAFU</title>
+
+    
+    <link rel="stylesheet" href="http://fafu.zxlee.cn/iFAFUGuide/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://fafu.zxlee.cn/iFAFUGuide/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://fafu.zxlee.cn/iFAFUGuide/css/owl.carousel.css">
+    <link rel="stylesheet" href="http://fafu.zxlee.cn/iFAFUGuide/css/owl.theme.css">
+    <link rel="stylesheet" href="http://fafu.zxlee.cn/iFAFUGuide/css/nivo-lightbox/nivo-lightbox.css">
+    <link rel="stylesheet" href="http://fafu.zxlee.cn/iFAFUGuide/css/nivo-lightbox/nivo-lightbox-theme.css">
+    <link rel="stylesheet" href="http://fafu.zxlee.cn/iFAFUGuide/css/animate.css">
+    <link rel="stylesheet" href="http://fafu.zxlee.cn/iFAFUGuide/css/style.css">
+
+
+    <script src="js/modernizr.custom.js"></script>
+
 </head>
+
 <body>
-    <img src="http://www.zxlee.cn/peMain-white.png" alt="">
-    <h2>PicEditor</h2>
-    <p>一款免费的集图片拼接，网页快照等实用功能为一体的图像处理软件</p>
-    <p>若您有任何意见和建议，请发邮件至393727164@qq.com，帮助PicEditor做得更好！</p>
-    <div id="downLoad" onclick="downLoadClicked()">我要下载</div>
+
+    <a href="#header" id="back-to-top" class="top"><i class="fa fa-chevron-up"></i></a>
+    <!-- HHHHHHHHHHHHHHHHHH        Preloader          HHHHHHHHHHHHHHHH -->
+    <!-- <div id="preloader"></div> -->
+    <!-- HHHHHHHHHHHHHHHHHH        Header          HHHHHHHHHHHHHHHH -->
+    <section id="header" class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="navigation" id="navigation-scroll">
+                        <div class="row">
+                            <div class="col-md-11 col-xs-10">
+                                <a href="index.html"><span id="logo"><strong class="strong">i</strong>FAFU</span></a>
+                            </div>
+                            <div class="col-md-1 col-xs-2">
+                                <p class="nav-button">
+                                    <button id="trigger-overlay" type="button">
+                                    </button>
+                                </p>
+                            </div>
+                        </div><!-- /.row -->
+                    </div><!-- /.navigation -->
+                </div><!--/.container-->
+            </div><!--/.top-bar-->
+
+        <div class="container">
+            <div class="starting">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="http://fafu.zxlee.cn/iFAFUGuide/img/ifafushow.png" alt="LUCY" class="wow flipInY animated animated">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="banner-text">
+                             <h2 class="animation-box wow bounceIn animated"><strong class="strong">基于福建农林大学教务管理系统</strong><br>
+                            jwgl.fafu.edu.cn</h2>
+                            <p>
+                                您想要的平时分查询，智育分计算，个人课表，一键评教，选修学分查询，学生考试查询，网络教学平台资源获取，校园卡查询等等功能尽在iFAFU。
+                            </p>
+                            <a href="http://fafu.zxlee.cn/iFAFU/iFAFU_lastest_version.apk" class="btn btn-download wow animated fadeInLeft">
+                            <i class="fa fa-android pull-left"></i>
+                            <strong>Android</strong>
+                            <br/>内测版下载</a>
+                            <a href="https://itunes.apple.com/cn/app/ifafu/id1344490155?mt=8" class="btn btn-download wow animated fadeInRight">
+                            <i class="fa fa-apple pull-left"></i>
+                            <strong>iOS</strong>
+                            <br/>正式版下载</a>   
+                        </div> <!-- /.banner-text -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.starting -->
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /#header -->
+
+    <!-- HHHHHHHHHHHHHHHHHH        Video          HHHHHHHHHHHHHHHH -->
+    <div id="video" class="wrapper">
+        <div class="container">
+            <h2 class="animation-box wow bounceIn animated">FEATURES</h2>
+            <div class="virticle-line"></div>
+            <div class="circle"></div>
+            <img src="http://fafu.zxlee.cn/iFAFUGuide/img/feature.png" alt="feature" class="video img-responsive animation-box wow animated bounceInDown">
+            <p>
+                下载记录，一览无余
+            </p>
+
+            <div class="virticle-line"></div>
+            <div class="circle"></div>
+            <img src="http://fafu.zxlee.cn/iFAFUGuide/img/feature2.png" alt="feature" class="video img-responsive animation-box wow animated bounceInDown">
+            <p>
+                个人课表，功能完备
+            </p>
+
+            <div class="virticle-line"></div>
+            <div class="circle"></div>
+            <img src="http://fafu.zxlee.cn/iFAFUGuide/img/feature3.png" alt="feature" class="video img-responsive animation-box wow animated bounceInDown">
+            <p>
+                成绩查询，明察秋毫
+            </p>
+
+
+            <div class="virticle-line"></div>
+            <div class="circle"></div>
+            <img src="http://fafu.zxlee.cn/iFAFUGuide/img/feature4.png" alt="feature" class="video img-responsive animation-box wow animated bounceInDown">
+            <p>
+                搜索查询，不止一点点
+            </p>
+
+
+            <div class="virticle-line"></div>
+            <div class="circle"></div>
+            <img src="http://fafu.zxlee.cn/iFAFUGuide/img/feature5.png" alt="feature" class="video img-responsive animation-box wow animated bounceInDown">
+            <p>
+                实用小功能，应有尽有
+            </p>
+        </div> <!-- /.container -->
+    </div> <!-- /#video -->
+
+    
+    
+
+    <section id="footer" class="wrapper">
+        <div class="container text-center">
+            <div class="footer-logo">
+                <h1 class="text-center animation-box wow bounceIn animated">iFAFU</h1>
+            </div>
+             <div style="font-size: 14">新浪微博关注 <a style="color: red" href="https://weibo.com/u/5363314862">@iFAFU </a>，或加入QQ群<a style="color: red" href="https://jq.qq.com/?_wv=1027&k=5BwhG6k">iFAFU意见反馈</a>，或发送邮件至ifafu@foxmail.com联系我们</div>
+            <div class="copyright">
+                <div>Copyright © 2018年 iFAFU. All rights reserved.</div>
+            </div>
+        </div><!-- container -->
+    </section>
+    <!-- HHHHHHHHHHHHHHHHHH        Open/Close          HHHHHHHHHHHHHHHH -->
+    <div class="overlay overlay-hugeinc">
+        <button type="button" class="overlay-close">Close</button>
+        <nav>
+        <ul>
+            <li class="hideit"><a href="#header">Home</a></li>
+            <li class="hideit"><a href="#bigfeatures">Feature</a></li>
+            <li class="hideit"><a href="#speciality">Speciality</a></li>
+            <li class="hideit"><a href="#gallery">Gallery</a></li>
+            <li class="hideit"><a href="#testimonial">Testimonial</a></li>
+            <!-- <li class="hideit"><a href="#team">Team</a></li> -->
+            <li class="hideit"><a href="#contact">Contact Us</a></li>
+        </ul>
+        </nav>
+    </div>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/owl-carousel.js"></script>
+    <script src="js/nivo-lightbox.min.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <!--<script src="js/jquery.ajaxchimp.min.js"></script>-->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/script.js"></script>
     <script>
-        function downLoadClicked(){
-            window.open('https://itunes.apple.com/cn/app/piceditor/id1276616490?mt=8');
-        }
+        new WOW().init();
+    </script>
+    <script>
+        $(document).ready(function(){
+            $(".hideit").click(function(){
+                $(".overlay").hide();
+            });
+            $("#trigger-overlay").click(function(){
+                $(".overlay").show();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+
+          var kawa = $('.top-bar');
+          var back = $('#back-to-top');
+          function scroll() {
+             if ($(window).scrollTop() > 700) {
+                kawa.addClass('fixed');
+                back.addClass('show-top');
+
+             } else {
+                kawa.removeClass('fixed');
+                back.removeClass('show-top');
+             }
+          }
+
+          document.onscroll = scroll;
+        });
+    </script>
+    <!--HHHHHHHHHHHH        Smooth Scrooling     HHHHHHHHHHHHHHHH-->
+    <script>
+        $(function() {
+          $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+              var target = $(this.hash);
+              target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+              if (target.length) {
+                $('html,body').animate({
+                  scrollTop: target.offset().top
+                }, 1000);
+                return false;
+              }
+            }
+          });
+        });
     </script>
 </body>
-
 </html>
